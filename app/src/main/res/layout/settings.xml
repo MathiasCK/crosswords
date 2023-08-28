@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button_3"
+        android:id="@+id/button_3_letters"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="123dp"
@@ -14,14 +14,14 @@
         android:layout_marginEnd="123dp"
         android:layout_marginBottom="47dp"
         android:text="3-letter words"
-        app:layout_constraintBottom_toTopOf="@+id/button_4"
+        app:layout_constraintBottom_toTopOf="@+id/button_4_letters"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/button_4"
+        android:id="@+id/button_4_letters"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="123dp"
@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_3" />
+        app:layout_constraintTop_toBottomOf="@+id/button_3_letters" />
 
     <TextView
         android:id="@+id/textView"
@@ -42,7 +42,7 @@
         android:layout_marginEnd="158dp"
         android:layout_marginBottom="26dp"
         android:text="Select difficulty"
-        app:layout_constraintBottom_toTopOf="@+id/button_3"
+        app:layout_constraintBottom_toTopOf="@+id/button_3_letters"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
