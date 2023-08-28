@@ -6,11 +6,14 @@ import java.util.Random;
 public class Controls {
     public static void deleteText() {
         String currentText = MainActivity.text.getText().toString();
-    
-        if (!currentText.isEmpty()) {
-            String updatedText = currentText.substring(0, currentText.length() - 1);
-            MainActivity.text.setText(updatedText);
+        
+        if (currentText.isEmpty()) {
+            MainActivity.toast.setText("Select " + MainActivity.difficulty + " letters");
+            return;
         }
+
+        String updatedText = currentText.substring(0, currentText.length() - 1);
+        MainActivity.text.setText(updatedText);
     }
     
     public static void generateHint() {
