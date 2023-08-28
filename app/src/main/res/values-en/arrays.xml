@@ -10,18 +10,20 @@
         <item>N</item>
     </string-array>
 
+    <string-array name="words_3_letters">
+        <item>ANT</item>
+        <item>EAR</item>
+        <item>RAT</item>
+        <item>ART</item>
+        <item>TAR</item>
+    </string-array>
 
-
-    <string-array name="words">
+    <string-array name="words_4_letters">
         <item>RATE</item>
         <item>STAR</item>
         <item>NEAR</item>
         <item>TEAR</item>
         <item>SEAT</item>
-        <item>TALE</item>
-        <item>REAL</item>
-        <item>EAST</item>
-        <item>SALE</item>
-        <item>LAST</item>
     </string-array>
+
 </resources>

@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     TextView progress;
     TextView answerBox;
     TextView numCompleted;
+    int difficulty;
+    String [] letters;
+    String [] correctWords;
     
     @Override
     protected void onSaveInstanceState(Bundle outstate) {
@@ -70,20 +73,45 @@ public class MainActivity extends AppCompatActivity {
         button_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startGame();
+                selectDifficulty();
             }
         });
         
+    }
+    
+    private void selectDifficulty() {
+        setContentView(R.layout.settings);
+        
+        Resources res = getResources();
+        letters = res.getStringArray(R.array.letters);
+        
+        Button button_3 = (Button)findViewById(R.id.button_3);
+        Button button_4 = (Button)findViewById(R.id.button_4);
+    
+        button_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                difficulty = 3;
+                correctWords = res.getStringArray(R.array.words_3_letters);
+                startGame();
+            }
+        });
+    
+        button_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                difficulty = 4;
+                correctWords = res.getStringArray(R.array.words_4_letters);
+                startGame();
+            }
+        });
+
     }
     
     private void startGame() {
     
         setContentView(R.layout.activity_main);
         
-        Resources res = getResources();
-        
-        String [] letters = res.getStringArray(R.array.letters);
-        String [] correctWords = res.getStringArray(R.array.words);
         ArrayList <String> usedWords = new ArrayList<>();
     
         Button button_left_bottom = (Button)findViewById(R.id.button_left_bottom);
@@ -186,8 +214,9 @@ public class MainActivity extends AppCompatActivity {
                 String inputText = text.getText().toString();
                 toast.setText("");
                 
-                if (inputText.length() < 4 || !inputText.contains("A")) {
-                    toast.setText("Word must contain 4 letters and the letter A");
+                if (inputText.length() < difficulty || !inputText.contains("A")) {
+                    String toastMessage = "Word must contain " + difficulty + " letters and the letter A";
+                    toast.setText(toastMessage);
                     return;
                 }
                 
