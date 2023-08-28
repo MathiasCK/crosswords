@@ -26,4 +26,20 @@
         <item>SEAT</item>
     </string-array>
 
+    <string-array name="letters_5">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+    </string-array>
+
+    <string-array name="words_5_letters">
+        <item>BADGE</item>
+        <item>FACED</item>
+        <item>DECAF</item>
+        <item>GAFFE</item>
+    </string-array>
 </resources>

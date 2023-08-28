@@ -1,5 +1,6 @@
 package com.example.kryssord;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.Resources;
@@ -41,18 +42,24 @@ public class MainActivity extends AppCompatActivity {
     private void selectDifficulty() {
         setContentView(R.layout.settings);
         
-        Resources res = getResources();
-        letters = res.getStringArray(R.array.letters);
-        
         setupDifficultyButton(R.id.button_3_letters, R.array.words_3_letters, 3);
         setupDifficultyButton(R.id.button_4_letters, R.array.words_4_letters, 4);
+        setupDifficultyButton(R.id.button_5_letters, R.array.words_5_letters, 5);
     }
     
     private void setupDifficultyButton(int buttonId, int wordsArrayId, final int difficultyLevel) {
+    
+        Resources res = getResources();
         Button button = findViewById(buttonId);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (difficultyLevel == 5) {
+                    letters = res.getStringArray(R.array.letters_5);
+                } else {
+                    letters = res.getStringArray(R.array.letters);
+                }
+                
                 difficulty = difficultyLevel;
                 correctWords = getResources().getStringArray(wordsArrayId);
                 startGame();
