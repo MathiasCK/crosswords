@@ -85,27 +85,20 @@ public class MainActivity extends AppCompatActivity {
         Resources res = getResources();
         letters = res.getStringArray(R.array.letters);
         
-        Button button_3 = (Button)findViewById(R.id.button_3);
-        Button button_4 = (Button)findViewById(R.id.button_4);
+        setupDifficultyButton(R.id.button_3, R.array.words_3_letters, 3);
+        setupDifficultyButton(R.id.button_4, R.array.words_4_letters, 4);
+    }
     
-        button_3.setOnClickListener(new View.OnClickListener() {
+    private void setupDifficultyButton(int buttonId, int wordsArrayId, final int difficultyLevel) {
+        Button button = findViewById(buttonId);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                difficulty = 3;
-                correctWords = res.getStringArray(R.array.words_3_letters);
+                difficulty = difficultyLevel;
+                correctWords = getResources().getStringArray(wordsArrayId);
                 startGame();
             }
         });
-    
-        button_4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                difficulty = 4;
-                correctWords = res.getStringArray(R.array.words_4_letters);
-                startGame();
-            }
-        });
-
     }
     
     private void startGame() {
