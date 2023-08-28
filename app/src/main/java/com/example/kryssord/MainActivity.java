@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     static String [] letters;
     static String [] correctWords;
     static ArrayList<String> usedWords = new ArrayList<>();
+    int[] buttonIds = { R.id.button_A, R.id.button_1, R.id.button_2, R.id.button_3, R.id.button_4, R.id.button_5, R.id.button_6 };
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,15 +61,24 @@ public class MainActivity extends AppCompatActivity {
     }
     
     private void initButtons() {
-        int[] buttonIds = { R.id.button_A, R.id.button_1, R.id.button_2, R.id.button_3, R.id.button_4, R.id.button_5, R.id.button_6 };
-        Button[] buttons = new Button[buttonIds.length];
-    
         for (int i = 0; i < buttonIds.length; i++) {
-            buttons[i] = setupButtonClick(buttonIds[i], i);
+            setupButtonClick(buttonIds[i], i);
         }
     }
     
-    private Button setupButtonClick(int buttonId, int i) {
+    private void disableButtons() {
+        for (int i = 0; i < buttonIds.length; i++) {
+            disableButtonClick(buttonIds[i]);
+        }
+    }
+    
+    private void disableButtonClick(int buttonId) {
+        Button button = findViewById(buttonId);
+
+        button.setEnabled(false);
+    }
+    
+    private void setupButtonClick(int buttonId, int i) {
         Button button = findViewById(buttonId);
     
         button.setText(letters[i]);
@@ -79,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
                 text.append(button.getText());
             }
         });
-        return button;
     }
     
     private void initControls() {
@@ -97,7 +106,12 @@ public class MainActivity extends AppCompatActivity {
         button_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Controls.check();
+                boolean isFinished = Controls.check();
+                
+                if (isFinished) {
+                    toast.setText("Game finished");
+                    disableButtons();
+                }
             }
         });
         button_hint.setOnClickListener(new View.OnClickListener() {

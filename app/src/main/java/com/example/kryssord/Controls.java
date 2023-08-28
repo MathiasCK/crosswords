@@ -28,24 +28,24 @@ public class Controls {
         MainActivity.toast.setText(hint.substring(0, hint.length() - 1) + "*");
     }
     
-    public static void check() {
+    public static boolean check() {
         String inputText = MainActivity.text.getText().toString();
         MainActivity.toast.setText("");
     
         if (inputText.length() < MainActivity.difficulty || !inputText.contains("A")) {
             String toastMessage = "Word must contain " + MainActivity.difficulty + " letters and the letter A";
             MainActivity.toast.setText(toastMessage);
-            return;
+            return false;
         }
     
         if (MainActivity.usedWords.contains(inputText)) {
             MainActivity.toast.setText("Word is already used");
-            return;
+            return false;
         }
     
         if (!Arrays.asList(MainActivity.correctWords).contains(inputText)) {
             MainActivity.toast.setText("Wrong word");
-            return;
+            return false;
         }
     
         MainActivity.toast.setText("Correct!");
@@ -57,5 +57,8 @@ public class Controls {
         MainActivity.numCompleted.append(inputText + " ");
     
         MainActivity.text.setText("");
+        
+        return used == correct;
     }
+    
 }
