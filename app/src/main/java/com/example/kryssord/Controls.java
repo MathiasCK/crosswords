@@ -8,7 +8,7 @@ public class Controls {
         String currentText = MainActivity.text.getText().toString();
         
         if (currentText.isEmpty()) {
-            MainActivity.toast.setText("Select " + MainActivity.difficulty + " letters");
+            messageToast("Select " + MainActivity.difficulty + " letters");
             return;
         }
 
@@ -25,7 +25,7 @@ public class Controls {
         } while (MainActivity.usedWords.contains(MainActivity.correctWords[randomIndex]));
     
         String hint = MainActivity.correctWords[randomIndex];
-        MainActivity.toast.setText(hint.substring(0, hint.length() - 1) + "*");
+        messageToast(hint.substring(0, hint.length() - 1) + "*");
     }
     
     private static void messageToast(String toastMessage) {
@@ -56,7 +56,7 @@ public class Controls {
             return;
         }
     
-        MainActivity.toast.setText("Correct!");
+        messageToast("Correct!");
         MainActivity.usedWords.add(inputText);
     
         int used = MainActivity.usedWords.size();
