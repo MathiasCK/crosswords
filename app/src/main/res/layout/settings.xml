@@ -16,6 +16,7 @@
         android:text="3-letter words"
         app:layout_constraintBottom_toTopOf="@+id/button_4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -23,8 +24,8 @@
         android:id="@+id/button_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="47dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="108dp"
         android:layout_marginEnd="123dp"
         android:text="4-letter words"
         app:layout_constraintEnd_toEndOf="parent"
