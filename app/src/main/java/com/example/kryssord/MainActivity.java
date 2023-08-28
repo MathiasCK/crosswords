@@ -106,9 +106,9 @@ public class MainActivity extends AppCompatActivity {
         button_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean isFinished = Controls.check();
+                Controls.check();
                 
-                if (isFinished) {
+                if (usedWords.size() == correctWords.length) {
                     toast.setText("Game finished");
                     disableButtons();
                 }
