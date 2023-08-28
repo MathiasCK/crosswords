@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="letters">
+        <item>A</item>
+        <item>E</item>
+        <item>R</item>
+        <item>T</item>
+        <item>S</item>
+        <item>L</item>
+        <item>N</item>
+    </string-array>
+
+
+
+    <string-array name="words">
+        <item>RATE</item>
+        <item>STAR</item>
+        <item>NEAR</item>
+        <item>TEAR</item>
+        <item>SEAT</item>
+        <item>TALE</item>
+        <item>REAL</item>
+        <item>EAST</item>
+        <item>SALE</item>
+        <item>LAST</item>
+    </string-array>
+</resources>
